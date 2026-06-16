@@ -8,7 +8,7 @@
 
     <parent>
         <groupId>com.pavan.qe</groupId>
-        <artifactId>qa-automation-platform</artifactId>
+        <artifactId>qa-automation-centralized-framework</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
