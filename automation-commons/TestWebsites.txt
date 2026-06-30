@@ -1,0 +1,9 @@
+base.url=https://the-internet.herokuapp.com
+https://the-internet.herokuapp.com/login
+https://the-internet.herokuapp.com/dynamic_loading
+https://the-internet.herokuapp.com/dropdown
+
+
+base.url=https://opensource-demo.orangehrmlive.com
+
+base.url=https://www.saucedemo.com
