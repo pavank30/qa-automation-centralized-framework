@@ -1,3 +1,4 @@
+
 package com.pavan.qe.commons.context;
 
 import java.time.Instant;
@@ -5,8 +6,8 @@ import java.time.Instant;
 public class ExecutionContext {
 
     private String executionId;
+    private String framework;
     private String environment;
-    private String browser;
     private String platform;
     private Instant startTime;
     private String buildNumber;
@@ -20,20 +21,20 @@ public class ExecutionContext {
         this.executionId = executionId;
     }
 
+    public String getFramework() {
+        return framework;
+    }
+
+    public void setFramework(String framework) {
+        this.framework = framework;
+    }
+
     public String getEnvironment() {
         return environment;
     }
 
     public void setEnvironment(String environment) {
         this.environment = environment;
-    }
-
-    public String getBrowser() {
-        return browser;
-    }
-
-    public void setBrowser(String browser) {
-        this.browser = browser;
     }
 
     public String getPlatform() {

@@ -17,7 +17,8 @@ public final class WaitUtils {
         try {
             Thread.sleep(Duration.ofSeconds(time));
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("Thread sleep was interrupted.", e);
         }
     }
 

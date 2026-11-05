@@ -10,5 +10,7 @@ public class GoogleTest extends BaseTest {
     @Test
     public void shouldOpenGoogle() {
         Assert.assertEquals(DriverManager.getDriver().getTitle(), "Google");
+
+//        System.out.println(DriverManager.getDriver().getTitle());
     }
 }

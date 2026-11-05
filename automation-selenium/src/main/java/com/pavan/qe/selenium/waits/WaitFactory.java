@@ -1,6 +1,7 @@
+
 package com.pavan.qe.selenium.waits;
 
-import com.pavan.qe.commons.config.ConfigLoader;
+import com.pavan.qe.selenium.config.SeleniumExecutionConfig;
 import com.pavan.qe.selenium.driver.DriverManager;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -9,13 +10,17 @@ import java.time.Duration;
 public final class WaitFactory {
 
     private WaitFactory() {
-
+        // Prevent instantiation
     }
 
-    public static WebDriverWait explicitWait(){
+    public static WebDriverWait explicitWait() {
 
-        int timeout = Integer.parseInt(ConfigLoader.get("timeout_30Secs"));
+        SeleniumExecutionConfig config =
+                SeleniumExecutionConfig.load();
 
-        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
+        return new WebDriverWait(
+                DriverManager.getDriver(),
+                Duration.ofSeconds(config.getExplicitWait())
+        );
     }
 }

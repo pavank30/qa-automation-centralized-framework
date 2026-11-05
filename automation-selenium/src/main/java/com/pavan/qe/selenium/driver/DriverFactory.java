@@ -1,7 +1,8 @@
+
 package com.pavan.qe.selenium.driver;
 
-import com.pavan.qe.commons.context.FrameworkContext;
 import com.pavan.qe.commons.exceptions.DriverException;
+import com.pavan.qe.selenium.config.SeleniumExecutionConfig;
 import com.pavan.qe.selenium.enums.BrowserType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -18,23 +19,17 @@ import java.util.Map;
 public final class DriverFactory {
 
     private DriverFactory() {
+        // Prevent instantiation
     }
 
-    public static WebDriver createDriver() {
+    public static WebDriver createDriver(SeleniumExecutionConfig config) {
 
-        BrowserType browserType =
-                BrowserType.from(
-                        FrameworkContext.get().getBrowser()
-                );
+        BrowserType browserType = config.getBrowser();
 
         return switch (browserType) {
-
             case CHROME -> createChromeDriver();
-
             case FIREFOX -> createFirefoxDriver();
-
             case EDGE -> createEdgeDriver();
-
             case SAFARI -> throw new DriverException(
                     "Safari browser is not supported yet."
             );
@@ -46,13 +41,11 @@ public final class DriverFactory {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-
         options.addArguments("--start-maximized");
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
 
         Map<String, Object> prefs = new HashMap<>();
-
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         prefs.put("profile.password_manager_leak_detection", false);
@@ -67,15 +60,18 @@ public final class DriverFactory {
     private static WebDriver createFirefoxDriver() {
 
         WebDriverManager.firefoxdriver().setup();
+
         FirefoxOptions options = new FirefoxOptions();
+
         return new FirefoxDriver(options);
     }
 
     private static WebDriver createEdgeDriver() {
 
         WebDriverManager.edgedriver().setup();
+
         EdgeOptions options = new EdgeOptions();
+
         return new EdgeDriver(options);
     }
-
 }

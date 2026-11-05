@@ -17,6 +17,7 @@ public class LoginTest extends BaseTest {
 
         HomePage homePage = new HomePage();
         Assert.assertTrue(homePage.isAppLogoDisplayed(), "User is not on Home Page");
+        Assert.fail("Failing intentionaly");
 
     }
 

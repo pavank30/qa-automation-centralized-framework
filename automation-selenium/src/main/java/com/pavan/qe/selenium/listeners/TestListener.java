@@ -41,12 +41,17 @@ public class TestListener implements ITestListener {
 
         log.error("FAILED : {}", result.getMethod().getMethodName());
 
-        String screenshotPath =
-                ScreenshotUtils.capture(
-                        result.getMethod().getMethodName()
-                );
+        try {
+            String screenshotPath =
+                    ScreenshotUtils.capture(
+                            result.getMethod().getMethodName()
+                    );
 
-        log.error("Screenshot : {}", screenshotPath);
+            log.error("Screenshot : {}", screenshotPath);
+
+        } catch (Exception e) {
+            log.error("Screenshot capture failed.", e);
+        }
 
         if (result.getThrowable() != null) {
             log.error("Failure Reason", result.getThrowable());

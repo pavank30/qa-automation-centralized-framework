@@ -14,7 +14,8 @@ public final class DriverManager {
     /**
      * Stores WebDriver for current thread.
      */
-    public static void setDriver(WebDriver driver) {
+    public static void setDriver(WebDriver driver)
+    {
         DRIVER.set(driver);
     }
 

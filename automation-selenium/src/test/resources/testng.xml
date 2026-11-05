@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Selenium Automation Suite"
+       verbose="1"
+       parallel="false">
+
+    <listeners>
+        <listener class-name="com.pavan.qe.selenium.listeners.TestListener"/>
+    </listeners>
+
+    <test name="Login Tests">
+        <classes>
+            <class name="com.pavan.qe.selenium.tests.LoginTest"/>
+        </classes>
+    </test>
+
+<!--    <test name="Google Tests">-->
+<!--        <classes>-->
+<!--            <class name="com.pavan.qe.selenium.tests.GoogleSearchTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+
+</suite>
